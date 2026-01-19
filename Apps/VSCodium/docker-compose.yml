@@ -1,0 +1,44 @@
+name: vscodium
+services:
+  vscodium:
+    image: lscr.io/linuxserver/vscodium-web:latest
+    container_name: vscodium
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - CONNECTION_TOKEN=casaos_secret_token  # Optional: Password for the Web UI
+    volumes:
+      - /DATA/AppData/$AppID/config:/config
+      - /DATA/AppData/$AppID/workspace:/config/workspace
+    ports:
+      - target: 8000
+        published: ${WEBUI_PORT:-8000}
+    x-casaos:
+      ports:
+        - container: "8000"
+          description:
+            en_us: "VSCodium Web Interface"
+      volumes:
+        - container: /config/workspace
+          description:
+            en_us: "Your Project Files"
+
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: vscodium
+  title:
+    en_us: "VSCodium Web"
+  tagline:
+    en_us: "Open-source VS Code without telemetry, in your browser."
+  description:
+    en_us: "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code. This version runs entirely in your browser."
+  developer: "VSCodium"
+  author: "YourName"
+  icon: https://raw.githubusercontent.com/YourUser/YourRepo/main/Apps/vscodium/icon.png
+  screenshot_link:
+    - https://raw.githubusercontent.com/YourUser/YourRepo/main/Apps/vscodium/screenshot-1.png
+  port_map: ${WEBUI_PORT:-8000}
