@@ -43,7 +43,7 @@ x-casaos:
     en_us: "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code. This version runs entirely in your browser."
   developer: "VSCodium"
   author: "YourName"
-  icon: https://raw.githubusercontent.com/YourUser/YourRepo/main/Apps/vscodium/icon.png
+  icon: https://raw.githubusercontent.com/Barnsa/my-casaos-store/main/Apps/vscodium/icon.png
   screenshot_link:
-    - https://raw.githubusercontent.com/YourUser/YourRepo/main/Apps/vscodium/screenshot-1.png
+    - https://raw.githubusercontent.com/Barnsa/my-casaos-store/main/Apps/vscodium/screenshot-1.png
   port_map: ${WEBUI_PORT:-8000}
