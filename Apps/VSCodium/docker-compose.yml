@@ -25,6 +25,11 @@ services:
           description:
             en_us: "Your Project Files"
 
+deploy:
+  resources:
+    limits:
+      memory: 1024M
+      
 x-casaos:
   architectures:
     - amd64
